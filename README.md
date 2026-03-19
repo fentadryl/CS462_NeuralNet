@@ -4,11 +4,10 @@
 git clone https://github.com/fentadryl/CS462_NeuralNet.git
 
 # Move into the project folder
-cd CS462_NeuralNet/myneuralnet
+cd CS462_NeuralNet\
 
-# This creates a 'bin' folder and compiles your code into it
-mkdir -p bin
-javac -d bin src/*.java
+# Compile Code and place in current directory
+javac -d . src/*.java
 
-# Ececute Code
-java -cp bin myneuralnet.neuralnet
+# Run Code
+java myneuralnet.neuralnet
