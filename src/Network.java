@@ -1,3 +1,4 @@
+//Author: Jaine Tiu
 package myneuralnet;
 import java.util.*;
 
