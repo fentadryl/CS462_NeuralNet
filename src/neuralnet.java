@@ -1,3 +1,4 @@
+//Authors: Ben Rolfe, Jaine Tiu
 package myneuralnet;
 import java.util.*;
 
@@ -15,8 +16,7 @@ public class neuralnet {
 		
 		// 2. APPLY NORMALIZATION (Creating the separate named list)
 	    // We use 100-250 for weight and 60-85 for height as our "bounds"
-		//Watch what happens when you dont do this
-	    List<List<Double>> normalizedData = Util.getNormalizedData(data, 100, 250, 60, 85);
+	    List<List<Double>> normalizedData = Util.getNormalizedData(data);
 		
 		int epochs = 2000;
 	    double lr = 0.1;
