@@ -15,6 +15,7 @@ public class neuralnet {
 		
 		// 2. APPLY NORMALIZATION (Creating the separate named list)
 	    // We use 100-250 for weight and 60-85 for height as our "bounds"
+		//Watch what happens when you dont do this
 	    List<List<Double>> normalizedData = Util.getNormalizedData(data, 100, 250, 60, 85);
 		
 		int epochs = 2000;
@@ -30,7 +31,7 @@ public class neuralnet {
 	    System.out.println("\n--- Training Stats ---");
 	    for (int i = 0; i < history.size(); i++) {
 	        // Print every 200 epochs to keep the console clean
-	        if (i % 200 == 0 || i == history.size() - 1) {
+	    	if (i % 200 == 0 || i == history.size() - 1) {
 	            System.out.printf("Epoch %d | Loss: %.6f%n", i, history.get(i));
 	        }
 	    }
@@ -40,8 +41,6 @@ public class neuralnet {
 	        double p = network.predict(normalizedData.get(i).get(0), normalizedData.get(i).get(1));
 	        System.out.printf("Target: %.1f | Prediction: %.4f%n", answers.get(i), p);
 	    }
-	}
-		
-		
+	}	
+     	
 }
-
