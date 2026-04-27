@@ -1,23 +1,25 @@
 package myneuralnet;
 import java.util.*;
 
+//Author: Ben Rolfe
 public class Neuron {
 	
     Random random = new Random();
     
     public double weight1 = random.nextDouble(-1, 1); 
     public double weight2 = random.nextDouble(-1, 1);
-    public double bias = random.nextDouble(-1, 1);
+    public double bias = random.nextDouble(0.05, 0.1);
     
     private double lastInput1;
     private double lastInput2;
     private double lastOutput;
+    private double z;
     
     // This is for Forward Propagation
     public double forward(double i1, double i2) {
         this.lastInput1 = i1;
         this.lastInput2 = i2;
-        double z = (weight1 * i1) + (weight2 * i2) + bias;
+        this.z = (weight1 * i1) + (weight2 * i2) + bias;
         this.lastOutput = Util.sigmoid(z);
         return lastOutput;
     }
