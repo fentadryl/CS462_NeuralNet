@@ -1,8 +1,8 @@
 package myneuralnet;
 import java.util.*;
 
-
 public class Neuron {
+	
     Random random = new Random();
     
     public double weight1 = random.nextDouble(-1, 1); 
@@ -25,7 +25,8 @@ public class Neuron {
     // This is for Backpropagation
     public double backward(double errorSignal, double learningRate) {
         // 1. Calculate the local gradient
-        double delta = errorSignal * (lastOutput * (1 - lastOutput));
+    	double slope = Util.sigmoidDeriv(lastOutput);
+        double delta = errorSignal * slope;
 
         // 2. Update parameters (using weight1/weight2 to match declarations)
         this.weight1 -= learningRate * delta * lastInput1;
