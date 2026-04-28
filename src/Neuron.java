@@ -20,14 +20,14 @@ public class Neuron {
         this.lastInput1 = i1;
         this.lastInput2 = i2;
         this.z = (weight1 * i1) + (weight2 * i2) + bias;
-        this.lastOutput = Util.sigmoid(z);
+        this.lastOutput = Util.activation(z);
         return lastOutput;
     }
 
     // This is for Backpropagation
     public double backward(double errorSignal, double learningRate) {
         // 1. Calculate the local gradient
-    	double slope = Util.sigmoidDeriv(lastOutput);
+    	double slope = Util.activationDeriv(lastOutput);
         double delta = errorSignal * slope;
 
         // 2. Update parameters (using weight1/weight2 to match declarations)
