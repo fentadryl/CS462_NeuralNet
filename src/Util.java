@@ -8,47 +8,61 @@ import java.util.List;
 public class Util {
 
 	//Author: Ben Rolfe
-	// Sigmoid
+	// Sigmoid activation function, maps any real number to range (0, 1)
+	// Used for output layer in binary classification
 	public static double sigmoid(double in){
 		return 1 / (1 + Math.exp(-in));
 	}
+	// Derivative of sigmoid with respect to z (NOT output)
+	// Uses sigmoid(z) internally
+	// Important: input must be z, not already-activated value
 	public static double sigmoidDeriv(double in){
-    	return in * (1 - in);
+		double sig = sigmoid(in);
+    	return sig * (1 - sig);
 	}
 
 	//Author: Jaine Tiu
-	// ReLU
+	// ReLU activation function
+	// Outputs 0 for negative values, identity for positive
     public static double relu(double in){
         return Math.max(0, in);
     }
+	// Derivative of ReLU with respect to z
+	// 1 if z > 0, else 0
+	// Important: must use z, not output
     public static double reluDeriv(double in){
         return in > 0 ? 1 : 0;
     }
 
 	//Author: Jaine Tiu
-	//Tanh
+	// Tanh activation function
+	// Maps values to range (-1, 1)
+	// Often used instead of sigmoid in hidden layers
 	public static double tanh(double in){
     	return Math.tanh(in);
     }  
+	// Derivative of tanh with respect to z
+	// Uses tanh(z) internally
     public static double tanhDeriv(double in){
     	double t = Math.tanh(in);
         return 1 - t * t;  
     }
 
 	//Author: Jaine Tiu
+	//Select which activation function to use
 	public static double activation(double in){
-		return sigmoid(in);
+		//return sigmoid(in);
         // return relu(in);
-		// return tanh(in);
+		return tanh(in);
     }
     public static double activationDeriv(double in){
-        return sigmoidDeriv(in);
-        // return reluDeriv(in);
-		// return tanhDeriv(in);
+        //return sigmoidDeriv(in);
+        //return reluDeriv(in);
+		return tanhDeriv(in);
     }
 
 	//Author: Ben Rolfe
-	// Assumes array args are same length
+	// Assumes data is well formatted, arrayLists are of the same length
 	public static Double meanSquareLoss(List<Double> correctAnswers, List<Double> predictedAnswers){
 	    double sumSquare = 0;
 	    for (int i = 0; i < correctAnswers.size(); i++){
