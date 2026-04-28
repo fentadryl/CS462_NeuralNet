@@ -12,8 +12,8 @@ public class Util {
 	public static double sigmoid(double in){
 		return 1 / (1 + Math.exp(-in));
 	}
-	public static double sigmoidDeriv(double output){
-    	return output * (1 - output);
+	public static double sigmoidDeriv(double in){
+    	return in * (1 - in);
 	}
 
 	//Author: Jaine Tiu
