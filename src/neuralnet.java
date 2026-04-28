@@ -13,7 +13,6 @@ public class neuralnet {
 		data.add(Arrays.asList(120, 67));
 		List<Double> answers = Arrays.asList(1.0,0.0,0.0,1.0); 
 		
-		
 		// 2. APPLY NORMALIZATION (Creating the separate named list)
 	    // We use 100-250 for weight and 60-85 for height as our "bounds"
 	    List<List<Double>> normalizedData = Util.getNormalizedData(data);
@@ -41,6 +40,5 @@ public class neuralnet {
 	        double p = network.predict(normalizedData.get(i).get(0), normalizedData.get(i).get(1));
 	        System.out.printf("Target: %.1f | Prediction: %.4f%n", answers.get(i), p);
 	    }
-	}	
-     	
+	}	  	
 }
